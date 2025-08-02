@@ -1,28 +1,26 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import FeaturesSection from './components/FeaturesSection';
-import ServicesSection from './components/ServicesSection';
-import RPAStatsSection from './components/RPAStatsSection';
-import UseCasesSection from './components/UseCasesSection';
-import ProductsSection from './components/ProductsSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div id="home" className="min-h-screen">
-      <Header />
-      <HeroSection />
-      <FeaturesSection />
-      <AboutSection />
-      <ServicesSection />
-      <RPAStatsSection />
-      <UseCasesSection />
-      <ContactSection />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
